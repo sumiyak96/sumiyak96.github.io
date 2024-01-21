@@ -1,0 +1,14 @@
+[
+    {
+        "name": "JavaScript",
+        "level": "上級"
+    },
+    {
+        "name": "React",
+        "level": "中級"
+    },
+    {
+        "name": "Node.js",
+        "level": "中級"
+    }
+]
