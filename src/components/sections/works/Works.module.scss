@@ -1,0 +1,18 @@
+.works {
+    padding: 40px;
+    text-align: center;
+    height: 100vh; // ビューポートの高さに合わせる
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // 背景色の設定（例）
+    background-color: #d0d0d0;
+  
+    .projects {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+  

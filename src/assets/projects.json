@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "title": "Project 1 fantastic",
+        "description": "プロジェクト1の説明。",
+        "bgImage": "/assets/project/pj1.png",
+        "detail": {
+        }
+    },
+    {
+        "id": 2,
+        "title": "Project 2 super",
+        "description": "プロジェクト2の説明。",
+        "bgImage": "/assets/project/pj2.png",
+        "detail": {
+        }
+    },
+    {
+        "id": 3,
+        "title": "Project 3 hyper",
+        "description": "プロジェクト3の説明。",
+        "bgImage": "/assets/project/pj3.png",
+        "detail": {
+        }
+    }
+]
