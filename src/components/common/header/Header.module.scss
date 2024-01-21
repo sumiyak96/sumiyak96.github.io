@@ -1,12 +1,15 @@
 .header {
     position: fixed;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.5);
-    z-index: 10;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 10;
   
-    // スクロール時のスタイル変更
-    &.scrolled {
-      background-color: rgba(255, 255, 255, 0.8);
-    }
+  // スクロール時のスタイル変更
+  &.scrolled {
+    background-color: rgba(255, 255, 255, 0.8);
   }
-  
+}
+
+.title {
+  text-align: left;
+}
