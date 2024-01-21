@@ -1,0 +1,12 @@
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 10;
+  
+    // スクロール時のスタイル変更
+    &.scrolled {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+  
