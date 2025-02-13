@@ -62,7 +62,7 @@ const Header: React.FC = () => {
   );
 
   const drawerMenuItems = (
-    <Box
+    <Box component="div"
       sx={{
         width: 'auto',
         display: 'flex',
@@ -75,7 +75,8 @@ const Header: React.FC = () => {
   );
 
   const appBarMenuItems = (
-    <Box sx={{ display: { xs: 'none', sm: 'flex' }, flexGrow: 1, justifyContent: 'flex-end' }}>
+    <Box component="div"
+      sx={{ display: { xs: 'none', sm: 'flex' }, flexGrow: 1, justifyContent: 'flex-end' }}>
       {menuItems}
     </Box>
   );
