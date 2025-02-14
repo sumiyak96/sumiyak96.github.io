@@ -1,23 +1,31 @@
 import React, { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import * as THREE from 'three';
+import { useTexture } from "@react-three/drei";
 
-const Earth: React.FC = () => {
-  const earthRef = useRef<THREE.Mesh>(null!);
+interface EarthProps {
+  position: [number, number, number];
+}
 
-  // フレームごとに地球を回転させる
+export const Earth: React.FC<EarthProps> = (props) => {
+  const mesh = useRef<THREE.Mesh>(null!);
+  const texture = useTexture("/earth_map2.jpg");
+
+  // wrapS, wrapT を調整
+  texture.wrapS = THREE.RepeatWrapping;
+  texture.wrapT = THREE.RepeatWrapping;
+  texture.repeat.set(2, 1); // 必要なら調整
+
   useFrame(() => {
-    if (earthRef.current) {
-      earthRef.current.rotation.y += 0.01;
+    if (mesh.current) {
+      mesh.current.rotation.y += 0.005;
     }
   });
 
   return (
-    <mesh ref={earthRef}>
-      <sphereGeometry args={[100, 100, 100]} />
-      <meshStandardMaterial color={"orange"} />
+    <mesh {...props} ref={mesh}>
+      <sphereGeometry args={[1, 16, 64]} />
+      <meshStandardMaterial map={texture} color="white"/>
     </mesh>
   );
-};
-
-export default Earth;
+}
