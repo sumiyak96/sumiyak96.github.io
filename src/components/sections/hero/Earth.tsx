@@ -25,7 +25,7 @@ export const Earth: React.FC<EarthProps> = (props) => {
   return (
     <mesh {...props} ref={mesh}>
       <sphereGeometry args={[1, 16, 64]} />
-      <meshStandardMaterial map={texture} color="white"/>
+      <meshStandardMaterial map={texture} color="lightblue"/>
     </mesh>
   );
 }
