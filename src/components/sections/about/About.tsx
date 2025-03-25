@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { useInView } from 'react-intersection-observer';
+import { gsap } from 'gsap';
 import styles from './About.module.scss';
 
 const About: React.FC = () => {
+  const { ref, inView } = useInView({
+    triggerOnce: true, // 一度だけアニメーションを発動
+    threshold: 0.2, // セクションが20%表示されたら発動
+  });
+
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (inView && contentRef.current) {
+      gsap.fromTo(
+        contentRef.current,
+        { opacity: 0, y: 50 }, // 初期状態
+        { opacity: 1, y: 0, duration: 1.5, ease: 'power4.out' } // フェードイン＆スライドアップ
+      );
+    }
+  }, [inView]);
+
   return (
-    <div id="about" className={styles.about}>
+    <div id="about" className={styles.about} ref={ref}>
       {/* タイトル */}
       <div className={styles.title}>
         <h2>About Me</h2>
       </div>
       {/* コンテンツ */}
-      <div className={styles.content}>
+      <div className={styles.content} ref={contentRef}>
         {/* 左側: 自己紹介文 */}
         <div className={styles.text}>
           <h2 className={styles.name}>Sumiya Kurihara</h2>
