@@ -1,0 +1,100 @@
+.experience {
+    background: url('/assets/namibu.png') center center / cover no-repeat;
+    padding: 80px 20px;
+    color: #fff;
+    text-align: center;
+    position: relative;
+  }
+  
+  .heading {
+    font-size: 2.5rem; /* 他のセクションと統一 */
+    font-family: 'Playfair Display', serif; /* フォントを統一 */
+    font-weight: bold;
+    margin-bottom: 60px;
+  }
+  
+  .timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 120px; /* 縦棒をコンテンツから十分に離す */
+    width: 4px;
+    background-color: #fff; /* 縦棒の色 */
+  }
+  
+  .timelineItem {
+    display: grid;
+    grid-template-columns: 100px 1fr; /* 年号とコンテンツを分ける */
+    align-items: flex-start;
+    margin-bottom: 40px;
+    position: relative;
+  }
+  
+  .year {
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif; /* フォントを統一 */
+    font-weight: bold;
+    color: #fff;
+    text-align: right; /* 年号を右揃え */
+    padding-right: 20px; /* 縦棒との間隔を調整 */
+  }
+  
+  .content {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
+    margin-left: 20px; /* 縦棒とコンテンツの間隔を確保 */
+    text-align: left; /* 文字を左揃えに設定 */
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    font-family: 'Playfair Display', serif; /* フォントを統一 */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .role {
+    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif; /* フォントを統一 */
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .description {
+    font-size: 1rem;
+    font-family: 'Roboto', sans-serif; /* フォントを統一 */
+    line-height: 1.6;
+  }
+  
+  @media (max-width: 768px) {
+    .timelineItem {
+      grid-template-columns: 1fr; /* モバイルでは縦方向に配置 */
+      text-align: center;
+    }
+  
+    .year {
+      text-align: center;
+      padding-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .timeline::before {
+      display: none; /* モバイルでは縦棒を非表示 */
+    }
+  
+    .content {
+      margin-left: 0; /* モバイルでは余白をリセット */
+    }
+  }
