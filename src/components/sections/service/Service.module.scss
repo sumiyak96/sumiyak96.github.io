@@ -1,0 +1,86 @@
+.service {
+    width: 100%;
+    min-height: 80vh;
+    padding: 6rem 2rem;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box; /* パディングを含めて幅を計算 */
+  }
+  
+  .header {
+    text-align: center;
+    margin-bottom: 2rem;
+  
+    .title {
+      font-size: 2.5rem;
+      font-family: 'Playfair Display', serif;
+      font-weight: bold;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+  
+    .description {
+      font-size: 1.2rem;
+      font-family: 'Roboto', sans-serif;
+      color: #555;
+      line-height: 1.6;
+    }
+  }
+  
+  .serviceList {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 自動調整 */
+    gap: 2rem; /* ボックス間のスペース */
+    width: 100%; /* 横幅を親要素に合わせる */
+    box-sizing: border-box; /* パディングを含めて幅を計算 */
+    overflow: hidden; /* 横スクロールを防止 */
+  }
+  
+  .serviceItem {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 400px; /* カードの高さを統一 */
+    box-sizing: border-box; /* パディングを含めて幅を計算 */
+  
+    &:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    }
+  
+    .image {
+      width: 100%;
+      max-width: 150px; /* 画像の最大幅を統一 */
+      height: auto;
+      margin-bottom: 1rem;
+    }
+  
+    h3 {
+      font-size: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+  
+    p {
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+      color: #555;
+      line-height: 1.6;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3; /* 最大3行まで表示 */
+      -webkit-box-orient: vertical;
+    }
+  }

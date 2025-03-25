@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400;700&display=swap');
-
 .about {
   width: 100%;
   min-height: 80vh;
-  padding: 4rem 2rem;
+  padding: 6rem 2rem;
   background-color: #f9f9f9;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  box-sizing: border-box; /* パディングを含めて幅を計算 */
+  overflow: hidden; /* 横スクロールを防止 */
 }
 
 .title {
@@ -26,11 +26,11 @@
 .content {
   display: flex;
   flex-direction: row;
-  max-width: 1200px;
-  width: 100%;
   gap: 2rem;
-  opacity: 0; /* 初期状態で非表示 */
-  transform: translateY(50px); /* 初期位置を下にずらす */
+  max-width: 1200px;
+  width: 100%; /* 横幅を親要素に合わせる */
+  box-sizing: border-box; /* パディングを含めて幅を計算 */
+  overflow: hidden; /* 横スクロールを防止 */
 }
 
 .text {
