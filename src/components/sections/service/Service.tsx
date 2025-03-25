@@ -26,7 +26,7 @@ const services = [
 
 const Service: React.FC = () => {
   return (
-    <div id="service" className={styles.service}>
+    <div id="services" className={styles.service}>
       {/* セクションタイトル */}
       <div className={styles.header}>
         <h2 className={styles.title}>Services</h2>

@@ -63,9 +63,33 @@
 
   img {
     max-width: 100%;
-    max-height: 90%;
+    max-height: 450px; /* 画像の最大高さを制限 */
     height: auto;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    flex-direction: column; /* モバイルでは縦方向に配置 */
+    align-items: center; /* 中央揃え */
+    gap: 1.5rem; /* 要素間の余白を調整 */
+  }
+
+  .text {
+    text-align: center; /* モバイルでは中央揃え */
+    p {
+      font-size: 1rem; /* モバイル用にフォントサイズを縮小 */
+      line-height: 1.6; /* 行間を詰める */
+    }
+  }
+
+  .image {
+    img {
+      max-width: 90%; /* モバイル用に画像の幅を調整 */
+      max-height: 350px; /* モバイル用に画像の高さを調整 */
+      height: auto; /* 高さを自動調整 */
+    }
   }
 }

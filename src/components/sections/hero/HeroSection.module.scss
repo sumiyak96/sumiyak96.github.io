@@ -2,7 +2,7 @@
 
 .heroSection {
   width: 100vw;
-  height: 100vh;
+  height: 100vh; /* ビューポートの高さに合わせる */
   background-color: #000; /* 初期背景を黒に設定 */
   display: flex;
   justify-content: center;
@@ -24,6 +24,7 @@
   width: 100%; /* コンテナを画面幅に合わせる */
   box-sizing: border-box; /* パディングを含めた幅計算 */
   padding: 0 2rem; /* 左右に余白を追加して見切れを防ぐ */
+  margin-top: -20vh;
 }
 
 .title {
@@ -43,4 +44,34 @@
   margin-top: 1rem;
   opacity: 0; /* 初期状態で非表示 */
   font-family: 'Playfair Display', serif; /* フォントを適用 */
+}
+
+@media (max-width: 768px) {
+  .heroSection {
+    height: 100vh; /* スマホ画面の高さに合わせる */
+    padding: 0 1rem; /* 左右の余白を調整 */
+    box-sizing: border-box; /* パディングを含めた幅計算 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 中央揃え */
+    align-items: center; /* 横方向も中央揃え */
+  }
+
+  .textContainer {
+    text-align: center; /* モバイルでは中央揃え */
+    width: 100%; /* 横幅を画面幅にフィットさせる */
+    padding: 0 1rem; /* 左右の余白を調整 */
+    box-sizing: border-box; /* パディングを含めた幅計算 */
+    margin-top: -20vh; /* 文字だけを中央より少し上に移動 */
+  }
+
+  .title {
+    font-size: clamp(1.8rem, 5vw, 2.2rem); /* フォントサイズを調整して横幅に収める */
+    white-space: normal; /* テキストの折り返しを許可 */
+    word-wrap: break-word; /* 長い単語を折り返し */
+  }
+
+  .subtitle {
+    font-size: clamp(0.9rem, 3vw, 1.2rem); /* サブタイトルのフォントサイズを調整 */
+  }
 }

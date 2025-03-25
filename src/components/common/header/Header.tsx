@@ -55,12 +55,13 @@ const Header: React.FC = () => {
     <>
       <Button color="inherit" onClick={() => scrollToSection('top')}>Top</Button>
       <Button color="inherit" onClick={() => scrollToSection('about')}>About</Button>
+      <Button color="inherit" onClick={() => scrollToSection('services')}>Services</Button>
+      <Button color="inherit" onClick={() => scrollToSection('experience')}>Experience</Button>
       <Button color="inherit" onClick={() => scrollToSection('works')}>Works</Button>
       <Button color="inherit" onClick={() => scrollToSection('skills')}>Skills</Button>
       <Button color="inherit" onClick={() => scrollToSection('contacts')}>Contacts</Button>
     </>
   );
-
   const drawerMenuItems = (
     <Box component="div"
       sx={{

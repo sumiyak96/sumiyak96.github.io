@@ -30,6 +30,7 @@ const HeroSection: React.FC = () => {
 
   return (
     <div
+      id="top"
       ref={bgRef}
       className={`${styles.heroSection} ${withBackground ? styles.withBackground : ''}`}
     >
@@ -38,7 +39,7 @@ const HeroSection: React.FC = () => {
           世界を旅する、<br/>フリーランスエンジニア。
         </div>
         <div ref={subtitleRef} className={styles.subtitle}>
-          ITで誰かの“前に進む”を支えたい。場所に縛られず、想いに寄り添って。
+          ITで誰かの“前に進む”を支えたい。<br/>場所に縛られず、想いに寄り添って。
         </div>
       </div>
     </div>
