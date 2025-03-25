@@ -1,68 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+
 .heroSection {
-  background: url('/assets/hero7.JPG');
-  background-size: cover;
-  background-position: center;
+  width: 100vw;
   height: 100vh;
+  background-color: #000; /* 初期背景を黒に設定 */
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  color: black;
-
-  h1 {
-    font-size: 4.5rem;
-    margin-bottom: 1rem;
-  }
-
-  p {
-    font-size: 2.5rem;
-    max-width: 600px; // 文章の最大幅
-  }
-}
-
-.scroll-indicator {
-  position: absolute;
-  bottom: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  text-align: center;
-}
-
-.scroll-arrow {
-  display: block;
-  margin: 0 auto;
-  width: 24px;
-  height: 24px;
-  border: 2px solid white;
-  border-radius: 50%;
+  overflow: hidden;
   position: relative;
+
+  &.withBackground {
+    background: url('/assets/top_capetown.png') no-repeat center center;
+    background-size: cover;
+    transition: background 1s ease-in-out; /* 背景切り替えのアニメーション */
+  }
 }
 
-.scroll-arrow::before {
-  content: '';
+.textContainer {
   position: absolute;
-  top: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 8px;
-  height: 8px;
-  border-left: 2px solid white;
-  border-bottom: 2px solid white;
-  transform: translateX(-50%) rotate(-45deg);
-  animation: scroll-animation 2s infinite;
+  text-align: left;
+  z-index: 10;
+  width: 100%; /* コンテナを画面幅に合わせる */
+  box-sizing: border-box; /* パディングを含めた幅計算 */
+  padding: 0 2rem; /* 左右に余白を追加して見切れを防ぐ */
 }
 
-@keyframes scroll-animation {
-  0% {
-    top: 8px;
-  }
+.title {
+  font-size: clamp(3rem, 8vw, 3.5rem); /* 画面幅に応じてフォントサイズを調整 */
+  font-weight: bold;
+  color: #fff;
+  opacity: 0; /* 初期状態で非表示 */
+  font-family: 'Playfair Display', serif; /* フォントを適用 */
+  white-space: nowrap; /* テキストの折り返しを防ぐ */
+  overflow: hidden; /* テキストがコンテナを超えた場合に隠す */
+  text-overflow: ellipsis; /* 必要に応じて省略記号を表示 */
+}
 
-  50% {
-    top: 15px;
-  }
-
-  100% {
-    top: 8px;
-  }
+.subtitle {
+  font-size: clamp(1.5rem, 4vw, 2rem); /* 画面幅に応じてフォントサイズを調整 */
+  color: #fff;
+  margin-top: 1rem;
+  opacity: 0; /* 初期状態で非表示 */
+  font-family: 'Playfair Display', serif; /* フォントを適用 */
 }
