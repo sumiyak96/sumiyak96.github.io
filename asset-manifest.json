@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.89a59d43.css",
-    "main.js": "/static/js/main.f1e50b0a.js",
+    "main.css": "/static/css/main.2f39cf2b.css",
+    "main.js": "/static/js/main.7599a2a4.js",
     "static/js/787.2dcca737.chunk.js": "/static/js/787.2dcca737.chunk.js",
     "static/media/top_capetown.png": "/static/media/top_capetown.255b38c0eac1fc30dad0.png",
     "static/media/namibu.png": "/static/media/namibu.0455530410a0301513ab.png",
     "index.html": "/index.html",
-    "main.89a59d43.css.map": "/static/css/main.89a59d43.css.map",
-    "main.f1e50b0a.js.map": "/static/js/main.f1e50b0a.js.map",
+    "main.2f39cf2b.css.map": "/static/css/main.2f39cf2b.css.map",
+    "main.7599a2a4.js.map": "/static/js/main.7599a2a4.js.map",
     "787.2dcca737.chunk.js.map": "/static/js/787.2dcca737.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.89a59d43.css",
-    "static/js/main.f1e50b0a.js"
+    "static/css/main.2f39cf2b.css",
+    "static/js/main.7599a2a4.js"
   ]
 }
