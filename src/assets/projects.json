@@ -1,26 +1,125 @@
 [
     {
         "id": 1,
-        "title": "Project 1 fantastic",
-        "description": "プロジェクト1の説明。",
+        "title": "システムエンジニア（シンプレクス）",
+        "description": "JavaとSpringを中心に、金融システムを担当",
         "bgImage": "/assets/project/pj1.png",
-        "detail": {
-        }
+        "detail": "大手証券会社向けの取引システムの開発に従事。JavaとSpringを用いたサーバーサイド開発を中心に、トランザクションの整合性や性能チューニングを意識した実装を数多く経験。大量データ・高頻度アクセスを前提とした堅牢なコード設計と、システムの安定稼働を支える保守運用にも携わった。",
+        "images": [
+            "/assets/project/pj1.png",
+            "/assets/project/pj2.png",
+            "/assets/project/pj3.png"
+        ],
+        "techStack": [
+            "Java",
+            "Spring",
+            "Oracle",
+            "Linux",
+            "JIRA",
+            "Git",
+            "Jenkins",
+            "Vue.js",
+            "React.js"
+        ],
+        "links": [
+        ]
     },
     {
         "id": 2,
-        "title": "Project 2 super",
-        "description": "プロジェクト2の説明。",
-        "bgImage": "/assets/project/pj2.png",
-        "detail": {
-        }
+        "title": "チームリード・アーキテクチャリード（シンプレクス）",
+        "description": "AWSを活用した新システム設計やチームリードを担当",
+        "bgImage": "/assets/project/pj1.png",
+        "detail": "新サービス導入プロジェクトにおいて、新たなアーキテクチャの設計や非同期処理構成の策定、技術選定を担当。加えて、チームリードとしてタスク設計・進捗管理・レビュー対応も行い、若手エンジニアのサポートやメンバー間の技術連携にも力を注いだ。",
+        "images": [
+            "/assets/project/pj1.png",
+            "/assets/project/pj2.png",
+            "/assets/project/pj3.png"
+        ],
+        "techStack": [
+            "Java",
+            "Spring",
+            "AWS",
+            "JIRA",
+            "Git",
+            "Jenkins"
+        ],
+        "links": [
+        ]
     },
     {
         "id": 3,
-        "title": "Project 3 hyper",
-        "description": "プロジェクト3の説明。",
-        "bgImage": "/assets/project/pj3.png",
-        "detail": {
-        }
+        "title": "ポートフォリオサイト制作",
+        "description": "自分自身の想いを形にしたWebサイト",
+        "bgImage": "/assets/project/pj1.png",
+        "detail": "React + TypeScript + SCSSで構築したフルスクラッチのポートフォリオサイト。世界一周の経験をベースにパーソナリティを重視した構成にしており、アニメーションやタイムラインUI、モーダル表示なども実装。現在も継続的にアップデート中。",
+        "images": [
+            "/assets/project/pj1.png",
+            "/assets/project/pj2.png",
+            "/assets/project/pj3.png"
+        ],
+        "techStack": [
+            "React",
+            "TypeScript",
+            "SCSS",
+            "Framer Motion",
+            "GitHub Pages"
+        ],
+        "links": [
+            {
+                "name": "GitHub",
+                "url": "https://github.com/sumiyak96/sumiyak96.github.io"
+            },
+            {
+                "name": "Live Site",
+                "url": "https://sumiyak96.github.io/"
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "行動ログアプリ（個人開発）",
+        "description": "Kotlin学習を兼ねて開発した、行動の記録・可視化アプリ",
+        "bgImage": "/assets/project/pj1.png",
+        "detail": "Kotlinの学習目的で、自分が本当に欲しいアプリとして開発。毎日の行動をカテゴリごとに記録し、日・週・月ごとの実施回数をグラフで振り返ることができる。スマホ対応したいが、なかなか時間が取れず開発中断中。",
+        "images": [
+            "/assets/project/pj1.png",
+            "/assets/project/pj2.png",
+            "/assets/project/pj3.png"
+        ],
+        "techStack": [
+            "Kotlin",
+            "React.js",
+            "h2 database"
+        ],
+        "links": [
+            {
+                "name": "GitHub (Frontend)",
+                "url": "https://github.com/sumiyak96/activity-record-webui"
+            },
+            {
+                "name": "GitHub (Backend)",
+                "url": "https://github.com/sumiyak96/activity-record"
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "キャンセル待ち監視アプリ",
+        "description": "人気キャンプ場の空き状況を自動巡回&LINE通知",
+        "bgImage": "/assets/project/pj1.png",
+        "detail": "Pythonで開発したスクリプトにより、人気キャンプ場の予約サイトを定期的にチェック。空きが出た際にLINE Notifyで通知を送る構成。AWS Lambdaを用いて定期実行を行い、コストをかけずに実用的な運用を実現。人気キャンプ場がなかなか予約できず困ったので、自分のために開発。",
+        "images": [
+            "/assets/project/pj1.png",
+            "/assets/project/pj2.png",
+            "/assets/project/pj3.png"
+        ],
+        "techStack": [
+            "Python",
+            "Selenium",
+            "LINE Notify",
+            "AWS Lambda"
+        ],
+        "links": [
+        ]
     }
 ]

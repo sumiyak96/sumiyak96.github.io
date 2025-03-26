@@ -1,18 +1,240 @@
 .works {
-    padding: 40px;
-    text-align: center;
-    height: 100vh; // ビューポートの高さに合わせる
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    // 背景色の設定（例）
-    background-color: #d0d0d0;
-  
-    .projects {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+  width: 100%;
+  min-height: 80vh; /* Servicesセクションと同じ縦幅を設定 */
+  padding: 6rem 2rem; /* Servicesセクションと同じ余白を設定 */
+  background-color: #f9f9f9;
+  text-align: center;
+  box-sizing: border-box; /* パディングを含めた幅計算 */
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px; /* 他のセクションと同じ最大幅を設定 */
+  margin: 0 auto; /* 中央揃え */
+  width: 100%; /* 横幅を親要素に合わせる */
+  box-sizing: border-box; /* パディングを含めた幅計算 */
+}
+
+.card {
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 1rem;
+    text-align: left;
+
+    h3 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    p {
+      margin: 0.5rem 0 0;
+      font-size: 1rem;
     }
   }
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* 背景を半透明に */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+  .modalContent {
+    background: #fff;
+    width: 80%;
+    max-width: 900px;
+    height: 70%;
+    border-radius: 8px;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+
+  .modalHeader {
+    text-align: center;
+    margin-bottom: 1rem;
+
+    .modalTitle {
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+
+    .closeButton {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+  }
+
+  .modalBody {
+    display: flex;
+    flex: 1;
+    gap: 2rem;
   
+    .left {
+      flex: 1;
+      display: flex;
+      flex-direction: column; /* 縦方向に配置 */
+      gap: 1rem;
+  
+      .mainImage {
+        width: 80%; /* あなたの調整を尊重 */
+        max-width: 500px; /* 最大幅を制限 */
+        max-height: 300px; /* 最大高さを制限 */
+        margin: 0 auto; /* 中央揃え */
+  
+        img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+      }
+  
+      .subImages {
+        display: flex;
+        gap: 0.5rem;
+        justify-content: center; /* サブ画像を中央揃え */
+        flex-wrap: wrap; /* サブ画像が折り返されるように設定 */
+        margin-top: 3rem; /* あなたの調整を尊重 */
+  
+        .subImage {
+          width: 60px; /* サブ画像の幅 */
+          height: 60px; /* サブ画像の高さ */
+          object-fit: cover;
+          border-radius: 4px;
+          cursor: pointer;
+          transition: transform 0.2s ease;
+  
+          &:hover {
+            transform: scale(1.1);
+          }
+        }
+      }
+    }
+  
+    .right {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+  
+      .description {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+  
+      .techStack {
+        h4 {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+          text-align: center;
+        }
+  
+        .techStackLabels {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          justify-content: center;
+  
+          .techLabel {
+            background: #007bff;
+            color: #fff;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: bold;
+          }
+        }
+      }
+  
+      .links {
+        h4 {
+          font-size: 1.2rem;
+          margin-bottom: 0.5rem;
+        }
+  
+        a {
+          display: block;
+          font-size: 1rem;
+          color: #007bff;
+          text-decoration: none;
+          margin-bottom: 0.5rem;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      flex-direction: column; /* 縦方向に並べる */
+      gap: 1rem;
+  
+      .left, .right {
+        flex: none;
+        width: 100%; /* 横幅を100%に設定 */
+      }
+  
+      .mainImage {
+        max-width: 100%; /* メイン画像の幅を親要素に合わせる */
+        max-height: 200px; /* 高さを縮小 */
+      }
+  
+      .subImages {
+        overflow-x: auto; /* 横スクロールを有効にする */
+        display: flex;
+        gap: 0.5rem;
+        justify-content: flex-start; /* 左揃え */
+        padding-bottom: 1rem;
+  
+        .subImage {
+          width: 50px; /* サブ画像のサイズを縮小 */
+          height: 50px;
+        }
+      }
+    }
+  }
+}
