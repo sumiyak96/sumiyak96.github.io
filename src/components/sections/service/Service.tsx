@@ -3,16 +3,16 @@ import styles from './Service.module.scss';
 import services from '../../../assets/services.json'; // JSONデータをインポート
 
 // サービスデータの型定義
-interface Service {
+interface ServiceData {
   title: string;
   description: string;
   image: string;
 }
 
 const Service: React.FC = () => {
-  const [selectedService, setSelectedService] = useState<Service | null>(null);
+  const [selectedService, setSelectedService] = useState<ServiceData | null>(null);
 
-  const handleCardClick = (service: Service) => {
+  const handleCardClick = (service: ServiceData) => {
     setSelectedService(service); // モーダルに表示するサービスを設定
   };
 
