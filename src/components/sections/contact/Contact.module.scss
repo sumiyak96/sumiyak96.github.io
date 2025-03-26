@@ -1,0 +1,60 @@
+.contact {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+  
+    .title {
+      font-size: 2rem;
+      font-family: 'Playfair Display', serif;
+      color: #333;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+  
+    .description {
+      font-size: 1rem;
+      font-family: 'Roboto', sans-serif;
+      color: #555;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+  
+    .contactMethods {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      align-items: center;
+  
+      .contactItem {
+        text-align: center;
+  
+        .contactTitle {
+          font-size: 1.2rem;
+          font-weight: bold;
+          color: #333;
+          margin-bottom: 0.5rem;
+        }
+  
+        .contactText {
+          font-size: 1rem;
+          color: #555; /* シンプルな文字色 */
+        }
+  
+        .contactLink {
+          font-size: 1rem;
+          color: #007bff;
+          text-decoration: none;
+  
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  
+    /* レスポンシブ対応 */
+    @media (max-width: 768px) {
+      .contactMethods {
+        gap: 1.5rem;
+      }
+    }
+  }

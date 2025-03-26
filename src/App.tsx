@@ -8,6 +8,7 @@ import Service from './components/sections/service/Service';
 import History from './components/sections/history/History';
 import Works from './components/sections/works/Works';
 import Skills from './components/sections/skills/Skills';
+import Contact from './components/sections/contact/Contact';
 
 const App: React.FC = () => {
   return (
@@ -19,6 +20,7 @@ const App: React.FC = () => {
       <History />
       <Works />
       <Skills />
+      <Contact />
       <Footer />
     </div>
   );

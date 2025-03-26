@@ -59,8 +59,7 @@ const Header: React.FC = () => {
       <Button color="inherit" onClick={() => scrollToSection('history')}>History</Button>
       <Button color="inherit" onClick={() => scrollToSection('works')}>Works</Button>
       <Button color="inherit" onClick={() => scrollToSection('skills')}>Skills</Button>
-      {/* 準備中 */}
-      {/* <Button color="inherit" onClick={() => scrollToSection('contacts')}>Contacts</Button> */}
+      <Button color="inherit" onClick={() => scrollToSection('contact')}>Contact</Button>
     </>
   );
   const drawerMenuItems = (
