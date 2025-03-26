@@ -1,24 +1,62 @@
 .skills {
-    height: 100vh; // セクションの高さをビューポートの高さに合わせる
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+
+  .title {
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    color: #333;
     text-align: center;
-    padding: 40px;
+    margin-bottom: 2rem;
+  }
+
+  .skillList {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    gap: 1.5rem;
+  }
+
+  .skill {
+    display: flex;
     align-items: center;
-  
-    .skillList {
+    gap: 1rem;
+
+    .skillName {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #333;
+      min-width: 100px;
+      text-align: right;
+      line-height: 1;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 20px;
-  
-      .skill {
-        margin: 10px;
-        padding: 10px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
+      align-items: center;
+    }
+
+    .skillBarContainer {
+      flex: 1;
+      display: flex;
+      align-items: center;
+
+      .skillBar {
+        width: 100%;
+        height: 20px;
+        background-color: #e0e0e0;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+
+        .skillProgress {
+          height: 100%;
+          background-color: #007bff;
+          border-radius: 10px 0 0 10px;
+          transition: width 1s ease-in-out;
+          width: 0; /* 初期状態は0 */
+        }
+
+        &.animate .skillProgress {
+          width: var(--skill-level); /* カスタムプロパティで幅を指定 */
+        }
       }
     }
   }
-  
+}

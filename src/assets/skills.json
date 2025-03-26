@@ -1,14 +1,43 @@
 [
     {
-        "name": "JavaScript",
-        "level": "上級"
+      "name": "Java",
+      "level": 8
     },
     {
-        "name": "React",
-        "level": "中級"
+      "name": "Spring",
+      "level": 7
     },
     {
-        "name": "Node.js",
-        "level": "中級"
+      "name": "React.js",
+      "level": 5
+    },
+    {
+      "name": "Vue.js",
+      "level": 5
+    },
+    {
+      "name": "Python",
+      "level": 2
+    },
+    {
+      "name": "Kotlin",
+      "level": 2
+    },
+    {
+      "name": "Git",
+      "level": 7
+    },
+    {
+      "name": "JIRA",
+      "level": 7
+    },
+    {
+      "name": "Jenkins",
+      "level": 6
+    },
+    {
+      "name": "AWS",
+      "level": 6
     }
-]
+  ]
+  
