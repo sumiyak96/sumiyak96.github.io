@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './Experience.module.scss';
+import styles from './History.module.scss';
 
-const experiences = [
+const histories = [
     {
         year: '〜2015',
         title: '子ども時代',
@@ -34,12 +34,12 @@ const experiences = [
       }
 ];
 
-const Experience: React.FC = () => {
+const History: React.FC = () => {
     return (
-        <section id="experience" className={styles.experience}>
-            <h2 className={styles.heading}>Experience</h2>
+        <section id="history" className={styles.history}>
+            <h2 className={styles.heading}>History</h2>
             <div className={styles.timeline}>
-                {experiences.map((exp, index) => (
+                {histories.map((exp, index) => (
                     <div key={index} className={styles.timelineItem}>
                         <div className={styles.year}>{exp.year}</div>
                         <div className={styles.content}>
@@ -60,4 +60,4 @@ const Experience: React.FC = () => {
     );
 };
 
-export default Experience;
+export default History;
