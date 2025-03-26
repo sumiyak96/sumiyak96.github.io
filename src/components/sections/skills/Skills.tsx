@@ -21,13 +21,15 @@ const Skills: React.FC = () => {
       { threshold: 0.3 } // 30%が見えたらトリガー
     );
 
-    if (skillsRef.current) {
-      observer.observe(skillsRef.current);
+    const currentRef = skillsRef.current; // ローカル変数にコピー
+
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (skillsRef.current) {
-        observer.unobserve(skillsRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef); // ローカル変数を使用
       }
     };
   }, []);
@@ -46,6 +48,7 @@ const Skills: React.FC = () => {
               >
                 <div className={styles.skillProgress}></div>
               </div>
+              <span className={styles.skillLevel}>{skill.level}/10</span> {/* レベルを表示 */}
             </div>
           </div>
         ))}

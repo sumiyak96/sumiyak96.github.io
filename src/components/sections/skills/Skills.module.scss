@@ -1,11 +1,16 @@
 .skills {
   padding: 4rem 2rem;
+  min-height: 100vh;
   background-color: #f9f9f9;
+  background-image: url('../../../assets/skills_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 
   .title {
     font-size: 2rem;
     font-family: 'Playfair Display', serif;
-    color: #333;
+    color: #fff;
     text-align: center;
     margin-bottom: 2rem;
   }
@@ -13,7 +18,7 @@
   .skillList {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
   }
 
   .skill {
@@ -24,7 +29,7 @@
     .skillName {
       font-size: 1.2rem;
       font-weight: bold;
-      color: #333;
+      color: #fff;
       min-width: 100px;
       text-align: right;
       line-height: 1;
@@ -36,26 +41,33 @@
       flex: 1;
       display: flex;
       align-items: center;
+      gap: 1rem;
 
       .skillBar {
         width: 100%;
-        height: 20px;
-        background-color: #e0e0e0;
-        border-radius: 10px;
+        height: 15px;
+        border-radius: 5px;
         overflow: hidden;
         position: relative;
 
         .skillProgress {
           height: 100%;
-          background-color: #007bff;
-          border-radius: 10px 0 0 10px;
+          background-color: #90ee90;
+          border-radius: 5px 0 0 5px;
           transition: width 1s ease-in-out;
-          width: 0; /* 初期状態は0 */
+          width: 0;
         }
 
         &.animate .skillProgress {
-          width: var(--skill-level); /* カスタムプロパティで幅を指定 */
+          width: var(--skill-level);
         }
+      }
+
+      .skillLevel {
+        font-size: 1rem;
+        font-weight: bold;
+        color: #fff;
+        white-space: nowrap;
       }
     }
   }

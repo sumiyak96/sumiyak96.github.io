@@ -37,7 +37,7 @@ const Works: React.FC = () => {
   };
 
   return (
-    <section className={styles.works}>
+    <section id="works" className={styles.works}>
       <h2 className={styles.heading}>Works</h2>
       <div className={styles.grid}>
         {projectsData.map((project) => (
