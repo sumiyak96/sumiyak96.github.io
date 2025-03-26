@@ -1,30 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Service.module.scss';
+import services from '../../../assets/services.json'; // JSONデータをインポート
 
-const services = [
-  {
-    title: 'Web Development',
-    description: 'モダンなウェブアプリケーションの設計・開発を行います。',
-    image: '/assets/project/pj1.png',
-  },
-  {
-    title: 'Mobile App Development',
-    description: 'iOSやAndroid向けのモバイルアプリケーションを構築します。',
-    image: '/assets/project/pj2.png',
-  },
-  {
-    title: 'UI/UX Design',
-    description: 'ユーザー体験を重視したデザインを提供します。',
-    image: '/assets/project/pj3.png',
-  },
-  {
-    title: 'Consulting',
-    description: 'IT戦略や技術選定のアドバイスを行います。',
-    image: '/assets/project/pj1.png',
-  },
-];
+// サービスデータの型定義
+interface Service {
+  title: string;
+  description: string;
+  image: string;
+}
 
 const Service: React.FC = () => {
+  const [selectedService, setSelectedService] = useState<Service | null>(null);
+
+  const handleCardClick = (service: Service) => {
+    setSelectedService(service); // モーダルに表示するサービスを設定
+  };
+
+  const closeModal = () => {
+    setSelectedService(null); // モーダルを閉じる
+  };
+
   return (
     <div id="services" className={styles.service}>
       {/* セクションタイトル */}
@@ -37,13 +32,31 @@ const Service: React.FC = () => {
       {/* サービスリスト */}
       <div className={styles.serviceList}>
         {services.map((service, index) => (
-          <div key={index} className={styles.serviceItem}>
+          <div
+            key={index}
+            className={styles.serviceItem}
+            onClick={() => handleCardClick(service)} // カードクリックでモーダルを開く
+          >
             <img src={service.image} alt={service.title} className={styles.image} />
             <h3>{service.title}</h3>
             <p>{service.description}</p>
           </div>
         ))}
       </div>
+
+      {/* モーダル */}
+      {selectedService && (
+        <div className={styles.modal} onClick={closeModal}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
+            <button className={styles.closeButton} onClick={closeModal}>
+              ×
+            </button>
+            <img src={selectedService.image} alt={selectedService.title} className={styles.modalImage} />
+            <h3 className={styles.modalTitle}>{selectedService.title}</h3>
+            <p className={styles.modalDescription}>{selectedService.description}</p>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
