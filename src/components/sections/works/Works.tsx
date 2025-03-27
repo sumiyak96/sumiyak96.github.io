@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Works.module.scss';
 import projectsData from '../../../assets/projects.json';
-
 
 interface Link {
   name: string;
@@ -15,12 +14,13 @@ interface Project {
   detail: string;
   images: string[];
   techStack: string[];
-  links: Link[]; // リンクの配列形式
+  links: Link[];
 }
 
 const Works: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [mainImage, setMainImage] = useState<string | null>(null);
+  const projectRefs = useRef<HTMLDivElement[]>([]);
 
   const handleProjectClick = (project: Project) => {
     setSelectedProject(project);
@@ -32,24 +32,53 @@ const Works: React.FC = () => {
     setMainImage(null);
   };
 
-  const handleImageClick = (image: string) => {
-    setMainImage(image);
-  };
+  useEffect(() => {
+    projectRefs.current.forEach((item) => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.2 }
+      );
+      if (item) observer.observe(item);
+    });
+  }, []);
 
   return (
     <section id="works" className={styles.works}>
       <h2 className={styles.heading}>Works</h2>
       <div className={styles.grid}>
-        {projectsData.map((project) => (
+        {projectsData.map((project, index) => (
           <div
             key={project.id}
             className={styles.card}
-            style={{ backgroundImage: `url(${project.bgImage})` }}
+            ref={(el) => (projectRefs.current[index] = el!)}
+            style={{
+              opacity: 0,
+              transform: 'translateY(50px)',
+              transition: 'opacity 0.5s ease, transform 0.5s ease',
+            }}
             onClick={() => handleProjectClick(project)}
           >
-            <div className={styles.overlay}>
-              <h3 className={styles.title}>{project.title}</h3>
-              <p className={styles.description}>{project.description}</p>
+            <div
+              className={styles.bgImage}
+              style={{
+                backgroundImage: `url(${project.bgImage})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                width: '100%',
+                height: '100%',
+              }}
+            >
+              <div className={styles.overlay}>
+                <h3 className={styles.title}>{project.title}</h3>
+                <p className={styles.description}>{project.description}</p>
+              </div>
             </div>
           </div>
         ))}
@@ -60,16 +89,15 @@ const Works: React.FC = () => {
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
               <h3 className={styles.modalTitle}>{selectedProject.title}</h3>
-              <button className={styles.closeButton} onClick={closeModal}>×</button>
+              <button className={styles.closeButton} onClick={closeModal}>
+                ×
+              </button>
             </div>
             <div className={styles.modalBody}>
-              {/* 左側: メイン画像とサブ画像 */}
               <div className={styles.left}>
-                {/* メイン画像 */}
                 <div className={styles.mainImage}>
-                  <img src={mainImage || ""} alt="Main" />
+                  <img src={mainImage || ''} alt="Main" />
                 </div>
-                {/* サブ画像 */}
                 <div className={styles.subImages}>
                   {selectedProject.images.map((image, index) => (
                     <img
@@ -77,13 +105,11 @@ const Works: React.FC = () => {
                       src={image}
                       alt={`Sub ${index}`}
                       className={styles.subImage}
-                      onClick={() => handleImageClick(image)}
+                      onClick={() => setMainImage(image)}
                     />
                   ))}
                 </div>
               </div>
-
-              {/* 右側: 概要、技術スタック、リンク */}
               <div className={styles.right}>
                 <div className={styles.description}>
                   <p>{selectedProject.detail}</p>
