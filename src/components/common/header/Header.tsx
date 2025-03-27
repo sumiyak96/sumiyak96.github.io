@@ -26,11 +26,12 @@ const Header: React.FC = () => {
     };
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth' });
     }
+    setDrawerOpen(false);
   };
 
   const scrollToTop = () => {
@@ -103,13 +104,24 @@ const Header: React.FC = () => {
         </IconButton>
         {appBarMenuItems}
       </Toolbar>
-      <Drawer anchor="top" open={drawerOpen} onClose={toggleDrawer(false)}
+      <Drawer
+        anchor="top"
+        open={drawerOpen}
+        onClose={toggleDrawer(false)}
         sx={{
           '& .MuiDrawer-paper': {
             marginTop: '56px',
-            backgroundColor: 'rgba(82, 176, 213, 0.9)',
+            backgroundColor: 'rgba(51, 51, 51, 0.8)',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            color: '#fff',
+            fontFamily: "'Playfair Display', serif",
+            textAlign: 'center',
           },
-        }}>
+        }}
+      >
         {drawerMenuItems}
       </Drawer>
     </AppBar>

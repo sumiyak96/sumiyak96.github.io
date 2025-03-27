@@ -1,14 +1,17 @@
 .header {
   position: fixed;
   width: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: #333 !important;
   z-index: 10;
+  transition: background-color 0.3s ease;
 
-  // スクロール時のスタイル変更
   &.scrolled {
-    background-color: rgba(82, 176, 213, 0.8);
+    background-color: rgba(51, 51, 51, 0.8) !important;
   }
 }
-.title {
-  text-align: left;
+
+@media (min-width: 768px) {
+  .menuButton {
+    cursor: pointer;
+  }
 }
