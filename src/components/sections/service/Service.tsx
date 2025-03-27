@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styles from './Service.module.scss';
-import services from '../../../assets/services.json'; // JSONデータをインポート
+import services from '../../../assets/services.json';
 
-// サービスデータの型定義
 interface ServiceData {
   title: string;
   description: string;
@@ -11,31 +10,46 @@ interface ServiceData {
 
 const Service: React.FC = () => {
   const [selectedService, setSelectedService] = useState<ServiceData | null>(null);
+  const serviceRefs = useRef<HTMLDivElement[]>([]);
 
   const handleCardClick = (service: ServiceData) => {
-    setSelectedService(service); // モーダルに表示するサービスを設定
+    setSelectedService(service);
   };
 
   const closeModal = () => {
-    setSelectedService(null); // モーダルを閉じる
+    setSelectedService(null);
   };
+
+  useEffect(() => {
+    serviceRefs.current.forEach((item) => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.2 }
+      );
+      if (item) observer.observe(item);
+    });
+  }, []);
 
   return (
     <div id="services" className={styles.service}>
-      {/* セクションタイトル */}
       <div className={styles.header}>
-        <h2 className={styles.title}>Services</h2>
-        <p className={styles.description}>
-          私が提供するサービスの一覧です。お客様のニーズに合わせたソリューションを提供します。
-        </p>
+        <h2>Our Services</h2>
       </div>
-      {/* サービスリスト */}
+
       <div className={styles.serviceList}>
         {services.map((service, index) => (
           <div
             key={index}
             className={styles.serviceItem}
-            onClick={() => handleCardClick(service)} // カードクリックでモーダルを開く
+            ref={(el) => (serviceRefs.current[index] = el!)}
+            style={{ opacity: 0, transform: 'translateY(50px)', transition: 'opacity 0.5s ease, transform 0.5s ease' }}
+            onClick={() => handleCardClick(service)}
           >
             <img src={service.image} alt={service.title} className={styles.image} />
             <h3>{service.title}</h3>
@@ -44,7 +58,6 @@ const Service: React.FC = () => {
         ))}
       </div>
 
-      {/* モーダル */}
       {selectedService && (
         <div className={styles.modal} onClick={closeModal}>
           <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
