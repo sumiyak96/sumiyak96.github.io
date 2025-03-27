@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
 import styles from './History.module.scss';
 
 const histories = [
@@ -24,23 +25,50 @@ const histories = [
         year: '2024 - 2025',
         title: '世界一周バックパッカーひとり旅',
         description:
-          '2024年8月、新卒から勤めた会社を退職。\nそしてついに念願の世界一周の旅へ。バックパックひとつでアジア、中東、ヨーロッパ、アフリカを約7ヶ月かけて巡った。\nもともとは1年以内で南米、ヨーロッパ、オセアニアを含めて全部回りきる予定だったが、旅に出てすぐに世界の広さを実感し、とても1年では回りきれないと気づく。',
-      },
-      {
+            '2024年8月、新卒から勤めた会社を退職。\nそしてついに念願の世界一周の旅へ。バックパックひとつでアジア、中東、ヨーロッパ、アフリカを約7ヶ月かけて巡った。\nもともとは1年以内で南米、ヨーロッパ、オセアニアを含めて全部回りきる予定だったが、旅に出てすぐに世界の広さを実感し、とても1年では回りきれないと気づく。',
+    },
+    {
         year: '2025 - 現在',
         title: '世界を旅する、フリーランスエンジニアへ',
         description:
-          '「旅をしながら働く」ことができれば、「半永久的に旅を続けることができるのでは？」と思いつき、「世界を旅する、フリーランスエンジニア」を目指して活動スタート。\n場所に縛られず、好きな場所から好きな時に働くスタイルを目指し絶賛奮闘中。',
-      }
+            '「旅をしながら働く」ことができれば、「半永久的に旅を続けることができるのでは？」と思いつき、「世界を旅する、フリーランスエンジニア」を目指して活動スタート。\n場所に縛られず、好きな場所から好きな時に働くスタイルを目指し絶賛奮闘中。',
+    },
 ];
 
 const History: React.FC = () => {
+    const timelineRefs = useRef<HTMLDivElement[]>([]);
+
+    useEffect(() => {
+        timelineRefs.current.forEach((item, index) => {
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        gsap.to(item, {
+                            opacity: 1,
+                            y: 0,
+                            duration: 1,
+                            ease: 'power4.out',
+                        });
+                        observer.disconnect();
+                    }
+                },
+                { threshold: 0.2 }
+            );
+            if (item) observer.observe(item);
+        });
+    }, []);
+
     return (
         <section id="history" className={styles.history}>
             <h2 className={styles.heading}>History</h2>
             <div className={styles.timeline}>
                 {histories.map((exp, index) => (
-                    <div key={index} className={styles.timelineItem}>
+                    <div
+                        key={index}
+                        className={styles.timelineItem}
+                        ref={(el) => (timelineRefs.current[index] = el!)}
+                        style={{ opacity: 0, transform: 'translateY(50px)' }}
+                    >
                         <div className={styles.year}>{exp.year}</div>
                         <div className={styles.content}>
                             <h3 className={styles.title}>{exp.title}</h3>
