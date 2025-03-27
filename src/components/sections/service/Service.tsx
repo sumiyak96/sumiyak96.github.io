@@ -39,7 +39,10 @@ const Service: React.FC = () => {
   return (
     <div id="services" className={styles.service}>
       <div className={styles.header}>
-        <h2>Our Services</h2>
+        <h2 className={styles.title}>Services</h2>
+        <p className={styles.description}>
+          私が提供するサービスの一覧です。お客様のニーズに合わせたソリューションを提供します。
+        </p>
       </div>
 
       <div className={styles.serviceList}>
