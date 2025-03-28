@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
+import { useNavigate } from 'react-router-dom';
 import { gsap } from 'gsap';
 import styles from './About.module.scss';
 
@@ -10,6 +11,7 @@ const About: React.FC = () => {
   });
 
   const contentRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
 
   const paragraphs = [
     '金融系システムの開発・運用に携わる企業で、サーバーサイドを中心としたエンジニアリングに従事していました。2024年に会社を退職し、夢だった世界一周旅をスタート。',
@@ -67,6 +69,14 @@ const About: React.FC = () => {
         <div className={styles.image}>
           <img src="/about_me_himalaya.png" alt="プロフィール画像" />
         </div>
+      </div>
+      <div>
+        <button
+          onClick={() => navigate('/world-tour')}
+          className={styles.buttonToWorldTour}
+        >
+          世界一周へ
+        </button>
       </div>
     </div>
   );

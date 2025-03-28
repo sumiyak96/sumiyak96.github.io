@@ -9,10 +9,13 @@ import styles from './Header.module.scss';
 import Box from '@mui/material/Box';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons/faBars';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 const Header: React.FC = () => {
   const [scrolled, setScrolled] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,15 +30,24 @@ const Header: React.FC = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const section = document.getElementById(id);
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate(`/#${id}`);
+    } else {
+      const section = document.getElementById(id);
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setDrawerOpen(false);
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (location.pathname !== '/') {
+      navigate('/#top');
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    setDrawerOpen(false);
   };
 
   const toggleDrawer = (open: boolean) => (
@@ -63,6 +75,7 @@ const Header: React.FC = () => {
       <Button color="inherit" onClick={() => scrollToSection('contact')}>Contact</Button>
     </>
   );
+
   const drawerMenuItems = (
     <Box component="div"
       sx={{
@@ -126,5 +139,6 @@ const Header: React.FC = () => {
       </Drawer>
     </AppBar>
   );
-}
+};
+
 export default Header;

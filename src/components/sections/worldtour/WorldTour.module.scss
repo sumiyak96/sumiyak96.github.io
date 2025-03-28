@@ -1,0 +1,75 @@
+.worldTour {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+    text-align: center;
+
+    .heading {
+        font-size: 2.5rem;
+        font-family: 'Playfair Display', serif;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .description {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        color: #555;
+    }
+
+    .mapContainer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 2rem 0;
+    }
+
+    .countryInfo {
+        margin-top: 2rem;
+        text-align: center;
+
+        .countryName {
+            font-size: 2rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .countryDescription {
+            font-size: 1.2rem;
+            color: #555;
+        }
+    }
+}
+
+.instagram {
+    overflow-x: auto;
+    display: flex;
+    gap: 1rem;
+    padding: 0 1rem 1rem;
+    scrollbar-width: thin;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 1rem;
+    justify-content: center;
+
+    iframe {
+        flex: 0 0 auto;
+        scroll-snap-align: start;
+        width: 400px;
+        height: 480px;
+        border: none;
+    }
+
+    &::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #bbb;
+        border-radius: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+}
